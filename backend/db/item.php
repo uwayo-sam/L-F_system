@@ -18,27 +18,28 @@ class Item{
     }
     //for get all user exits in database
     public static function All($db){
-        $sql = "select * from items";
+        $sql = "SELECT * FROM items ORDER BY created_at DESC";
         $results = $db->query($sql);
-        if($results->num_rows > 0){
-            $rows = $results->fetch_assoc();
-            return $rows;
-        }else{
-            die('fetch items failed '.$db->error);
-            
-        }
+        
+        $rows = $results->fetch_all(MYSQLI_ASSOC);
+        return $rows;
+        
     }
     //find single user in database by id 
     public static function Find($id,$db){
         $sql = "select * from items where id = '$id'";
         $results = $db->query($sql);
-        if($results->num_rows > 0){
-            $rows = $results->fetch_assoc();
+        
+            $rows = $results->fetch_all(MYSQLI_ASSOC);
             return $rows;
-        }else{
-            die('find item failed '.$db->error);
-            
-        }
+        
+    }
+    //find single user in database by id 
+    public static function Search($query,$db){
+        $sql = "SELECT * FROM items WHERE LOWER(name) LIKE '%$query%' ORDER BY created_at DESC;";
+        $results = $db->query($sql);
+        $rows = $results->fetch_all(MYSQLI_ASSOC);
+        return $rows;
     }
     //update name and password of user by id
 
@@ -74,4 +75,3 @@ class Item{
         }
     }
 }
-
