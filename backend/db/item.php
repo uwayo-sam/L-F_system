@@ -10,9 +10,9 @@ class Item{
         $sql = "INSERT INTO items(name, type, description, image, loacation_found, contact_info) VALUES ('$name','$type','$description','$image','$loacation_found','$contact_info');";
      
         if($db->query($sql)){
-            return 'item created collectly';
+            return true;
         }else{
-            die('item create failed '.$db->error);
+            return false;
             
         }
     }
