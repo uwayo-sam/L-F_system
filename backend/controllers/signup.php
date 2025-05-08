@@ -10,7 +10,7 @@ $email;
 $password;
 $name;
 
-if(isset($_POST["email"]) && isset($_POST["email"])  && isset($_POST["password"]) ){
+if(isset($_POST["email"])  && isset($_POST["email"])  && isset($_POST["password"]) &&  !empty($_POST["email"]) && !empty($_POST["name"]) && !empty($_POST["password"])){
   $email = $_POST["email"];
   $password = $_POST["password"];
   $name = $_POST["name"];

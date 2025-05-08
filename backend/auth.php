@@ -16,3 +16,10 @@ function isAdmin(){
        redirect('../views/admin');
   }
 }
+
+
+function admin(){
+  if(isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
+    redirect('../views/');
+}
+}

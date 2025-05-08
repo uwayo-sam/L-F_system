@@ -4,6 +4,16 @@ session_start();
 include "../backend/db/item.php";
 include "../backend/db/conn.php";
 include "../backend/db/user.php";
+include "../backend/auth.php";
+
+
+
+isAuth();
+
+admin();
+
+
+
 $items;
 
 
@@ -163,15 +173,17 @@ if(isset($_GET['query']) && !empty($_GET['query'])){
             <td><h1>{$item['description']}</h1></td>
             <td><h1>{$item['description']}</h1></td>
             <td><h1>{$item['contact_info']}</h1></td>
-            <td>
-              
-<a href='./admin.php?action=approve&&id={$item['id']}' class='px-5 py-2 text-lg bg-transparent border-1 border-gray-500 rounded-md'>approve</a>
-<a href='./admin.php?action=delete&&id={$item['id']}' class='px-5 py-2 text-lg bg-transparent border-1 border-gray-500 rounded-md'>delete</a>
-            </td>
-            </tr>
-        
-        ";
-    }
+            <td class=' flex gap-2 items-center justify-center py-3'>";
+              if ($item['status'] == "pending") {
+                echo "<a href='./admin.php?action=approve&&id={$item['id']}' class='px-5 py-2 text-blue-600 text-lg bg-transparent border-1 border-gray-500 rounded-md'>approve</a>";
+            }else{
+              echo "<h1 class=' text-green-500'>{$item['status']}</h1>";
+            }
+                echo "
+                <a href='./admin.php?action=delete&&id={$item['id']}' class=' text-red-500 px-5 py-2 text-lg bg-transparent border-1 border-gray-500 rounded-md'>delete</a></td></tr>     
+                ";
+              }
+
 ?>
        
 

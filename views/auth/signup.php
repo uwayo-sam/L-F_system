@@ -34,7 +34,8 @@
                        type="text" 
                        name="name" 
                        placeholder="Enter Your Name" 
-                       id="">
+                       id=""
+                       required>
             </div>
             
             <div class="relative w-[30vw]">
@@ -43,7 +44,7 @@
                        type="email" 
                        name="email" 
                        placeholder="Enter Your Email" 
-                       id="">
+                       id="" required>
             </div>
             
             <div class="relative w-[30vw]">
@@ -52,7 +53,7 @@
                        type="password" 
                        name="password" 
                        placeholder="Enter Your Password" 
-                       id="">
+                       id="" required>
             </div>
             
             <button type="submit" class="mt-4 w-[30vw] bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200">
