@@ -25,6 +25,33 @@ class Item{
         return $rows;
         
     }
+    public static function Total($db){
+        $sql = "SELECT COUNT(*) AS total_items FROM items";
+        $results = $db->query($sql);
+        
+        $rows = $results->fetch_all(MYSQLI_ASSOC);
+        return $rows;
+        
+    }
+    public static function TotalApproved($db){
+        $sql = "SELECT COUNT(*) AS totalApproved FROM items WHERE status = 'approved'; ";
+        $results = $db->query($sql);
+        
+        $rows = $results->fetch_all(MYSQLI_ASSOC);
+        return $rows;
+        
+    }
+    public static function TotalNoneApproved($db){
+        $sql = "SELECT COUNT(*) AS totalNoneApproved FROM items WHERE status != 'approved'";
+        $results = $db->query($sql);
+        
+        $rows = $results->fetch_all(MYSQLI_ASSOC);
+        return $rows;
+        
+    }
+
+   
+
     //find single user in database by id 
     public static function Find($id,$db){
         $sql = "select * from items where id = '$id'";

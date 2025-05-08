@@ -1,5 +1,10 @@
 <?php
  session_start();
+ 
+ include "../backend/auth.php";
+
+
+ isAdmin();
 
 
 ?>
@@ -74,9 +79,9 @@
 
 
         <div class="flex flex-col gap-4 items-center max-lg:w-[80%] w-[70%] mt-7">
-         <h1 class="text-4xl font-extrabold max-lg:text-6xl">WELCOME TO LOST & FOUND HUB – YOUR LOST ITEM’S NEW HOPE!</h1>
+         <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 max-w-4xl">WELCOME TO LOST & FOUND HUB – YOUR LOST ITEM’S NEW HOPE!</h1>
 
-          <p class="mt-4 text-xl font-medium max-lg:text-3xl max-lg:mt-10">Have you lost something important and want to find it? Or found something that 
+          <p class="text-lg font-medium text-center max-w-4xl mb-16">Have you lost something important and want to find it? Or found something that 
             doesn’t belong to you and want to return it? You’re in the right place! Lost & Found Hub is where you can report found items or search for things you’ve lost. Whether it’s keys, phones, jewelry, 
             or something special, our community is here to help. Turn worry into hope—let’s bring lost items back to their owners!</p>
         </div>

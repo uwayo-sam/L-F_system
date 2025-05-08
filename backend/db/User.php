@@ -21,7 +21,18 @@ class User{
         $sql = "select id,name,email from users";
         $results = $db->query($sql);
         if($results->num_rows > 0){
-            $rows = $results->fetch_assoc();
+            $rows = $results->fetch_all(MYSQLI_ASSOC);;
+            return $rows;
+        }else{
+            die('fetch users failed '.$db->error);
+            
+        }
+    }
+    public static function Total($db){
+        $sql = "SELECT COUNT(*) AS total_users FROM users";
+        $results = $db->query($sql);
+        if($results->num_rows > 0){
+            $rows = $results->fetch_all(MYSQLI_ASSOC);;
             return $rows;
         }else{
             die('fetch users failed '.$db->error);
@@ -33,7 +44,7 @@ class User{
         $sql = "select id,name,email from users where id = '$id'";
         $results = $db->query($sql);
         if($results->num_rows > 0){
-            $rows = $results->fetch_assoc();
+            $rows = $results->fetch_all(MYSQLI_ASSOC);;
             return $rows;
         }else{
             die('find user failed '.$db->error);
@@ -44,7 +55,7 @@ class User{
         $sql = "select * from users where email = '$email'";
         $results = $db->query($sql);
         if($results->num_rows > 0){
-            $rows = $results->fetch_assoc();
+            $rows = $results->fetch_all(MYSQLI_ASSOC);;
             return $rows;
         }else{
             return false;

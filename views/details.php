@@ -7,6 +7,11 @@ include "../backend/auth.php";
 
 
 isAuth();
+isAdmin();
+
+
+
+
 $item;
 
 if(isset($_GET['id'])&& !empty($_GET['id'])){

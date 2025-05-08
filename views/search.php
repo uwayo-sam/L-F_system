@@ -6,6 +6,10 @@ include "../backend/auth.php";
 
 
 isAuth();
+isAdmin();
+
+
+
 $items;
 
  if (!isset($_GET["query"]) || empty($_GET["query"])) {

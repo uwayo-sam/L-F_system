@@ -3,6 +3,7 @@ session_start();
 include "../backend/auth.php";
 
 isAuth();
+isAdmin();
 
 ?>
 
@@ -93,7 +94,7 @@ isAuth();
                 <textarea name="description"  placeholder="Enter Item Name" class="px-5 h-full w-full rounded-lg overflow-hiddens outline-none text-lg" required></textarea>
             </div>
             
-                <input type="file" name="file" placeholder="Select Item Image" class="px-3 py-2 bg-[#0c0b12] hover:cursor-pointer hover:bg-slate-900 rounded-md" required>
+                <input type="file" name="file" accept="image/*" placeholder="Select Item Image" class="px-3 py-2 bg-[#0c0b12] hover:cursor-pointer hover:bg-slate-900 rounded-md" required>
         
             <button type="submit" class="mt-4 px-4 w-[30vw] bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 rounded-full transition-colors duration-200">
                Post
