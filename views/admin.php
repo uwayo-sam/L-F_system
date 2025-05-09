@@ -158,7 +158,7 @@ if(isset($_GET['query']) && !empty($_GET['query'])){
             <th>image</th>
             <th>name</th>
             <th>description</th>
-            <th>status</th>
+            <th>location_found</th>
             <th>contact info</th>
             <th></th>
         </thead>
@@ -171,7 +171,7 @@ if(isset($_GET['query']) && !empty($_GET['query'])){
             <td><img width='60px' height='60px' class='rounded-sm px-2' src='../uploads/{$item['image']} ' /></td>
             <td><h1>{$item['name']}</h1></td>
             <td><h1>{$item['description']}</h1></td>
-            <td><h1>{$item['description']}</h1></td>
+            <td><h1>{$item['loacation_found']}</h1></td>
             <td><h1>{$item['contact_info']}</h1></td>
             <td class=' flex gap-2 items-center justify-center py-3'>";
               if ($item['status'] == "pending") {
@@ -179,10 +179,16 @@ if(isset($_GET['query']) && !empty($_GET['query'])){
             }else{
               echo "<h1 class=' text-green-500'>{$item['status']}</h1>";
             }
+
+            if ($item['status'] != "pending") {
                 echo "
                 <a href='./admin.php?action=delete&&id={$item['id']}' class=' text-red-500 px-5 py-2 text-lg bg-transparent border-1 border-gray-500 rounded-md'>delete</a></td></tr>     
                 ";
-              }
+            }else{
+                echo "<h1 class=' text-green-500'>{$item['status']}</h1>";
+            }
+               
+    }
 
 ?>
        

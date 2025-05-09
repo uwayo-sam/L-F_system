@@ -82,10 +82,10 @@ isAdmin();
                 <input type="text" name="name" placeholder="Enter Item Name" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
             </div>
             <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
-                <input type="text" name="location_found" placeholder="Enter Where you Are" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
+                <input type="text" name="location_found" placeholder="Enter location its found" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
             </div>
             <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
-                <input type="text" name="contact_info" placeholder="Enter Phone Number" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
+                <input type="text" name="contact_info" placeholder="Enter Contact info" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
             </div>
             <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
                 <input type="text" name="type" placeholder="Enter Item Type" class="px-5 h-full w-full rounded-full outline-none text-lg" required>

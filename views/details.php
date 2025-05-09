@@ -108,12 +108,12 @@ if(isset($_GET['action'])){
       </div>
 
       <div class="flex gap-2">
-        <h1>location: </h1>
+        <h1>location it is found: </h1>
         <h2 class="text-lg font-bold"><?php echo $item['loacation_found'] ?></h2>
        </div>
 
        <div class="flex gap-2">
-        <h1>contact: </h1>
+        <h1>contact info: </h1>
         <h3 class="text-lg font-bold"><?php echo $item['contact_info'] ?></h3>
         </div>
 

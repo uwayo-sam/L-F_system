@@ -21,7 +21,7 @@ if(isset($_POST["email"])  && isset($_POST["email"])  && isset($_POST["password"
   }else{
     if(User::Create($name,$email,$password,$conn)){
         
-        $user = User::FindByEmail($email,$conn);
+        $user = User::FindByEmail($email,$conn)[0];
         if($user && $user["password"]==$password){
             $_SESSION["id"] = $user["id"];
             $_SESSION["name"] = $user["name"];
