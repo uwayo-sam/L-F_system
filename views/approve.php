@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include "../backend/db/item.php";
 include "../backend/db/conn.php";
@@ -10,8 +9,6 @@ isAuth();
 isAdmin();
 
 
-
-
 $item;
 
 if(isset($_GET['id'])&& !empty($_GET['id'])){
@@ -20,6 +17,8 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
       redirect('./');
     }
 }
+
+
 ?>
 
 
@@ -28,13 +27,12 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>item detail</title>
-    
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>reports</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body{
-            background: linear-gradient(rgba(0,0,0,.7)), url('../public/bg3.png');
+            background: linear-gradient(rgba(0,0,0,.7)), url('../public/bg.png');
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
@@ -84,69 +82,29 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
         </div>
     </div>
     <!-- /header -->
+     <div class="flex justify-center items-center">
 
+     <form action="../backend/controllers/post.php" method="post" class="backdrop-blur-sm w-[35vw] rounded-2xl flex px-9 flex-col gap-4 items-center border-2 border-gray-50 justify-center mt-7 h-[85vh]" enctype="multipart/form-data">
+            <h1 class="text-3xl font-bold mb-4 text-white">Report you info</h1>
 
-
-    <!-- details section -->
-
-<div class="flex items-center justify-center">
-    <div class="w-[50%] h-[70vh] flex items-center gap-7 justify-between backdrop-blur-sm border-2 border-gray-500 rounded-xl">
-
-    <?php
-    echo "<img src='../uploads/{$item['image']}' class='w-[50%] h-full shadow-md shadow-gray-600 rounded-xl'>";
-    ?>
-     
-     <div class="flex flex-col gap-2 w-[50%]">
-      
-     <div class="flex gap-2">
-        <h1 >name :</h1>
-        <h1 class=" text-xl font-bold"><?php echo $item['name'] ?></h1>
-      </div>
-
-      <div class="flex gap-2">
-        <h1>location it is found: </h1>
-        <h2 class="text-lg font-bold"><?php echo $item['loacation_found'] ?></h2>
-       </div>
-
-       <div class="flex gap-2">
-        <h1>contact info: </h1>
-        <h3 class="text-lg font-bold"><?php echo $item['contact_info'] ?></h3>
-        </div>
-
-        <div class="flex gap-2">
-        <h1>type: </h1>
-        <h4 class="text-lg font-bold"><?php echo $item['type'] ?></h4>
-        </div>
-
-        <div class="flex gap-2">
-        <h1>description: </h1>
-        <h4 class="text-md font-bold"><?php echo $item['description'] ?></h4>
-        </div>
-
-         <div class="flex gap-2">
-         <h1>time: </h1>
-         <h5><?php echo $item['created_at'] ?></h5>
-        </div>
-        <?php
-
-        if($item['status'] == 'pending'){
-          echo "<a href='./approve/?id={$item['id']}' class='backdrop-blur-sm border-2 w-1/2 hover:cursor-pointer hover:bg-gray-600 border-gray-600 px-5 py-2 rounded-xl'>approve</a>";
-        }else{
-            echo "<h1 class=' font-medium text-lg'>approved</h1>";
-        }
-
-        ?>
-         
+            <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
+                <input type="text" name="name" placeholder="Enter your name" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
+            </div>
+            <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
+                <input type="text" name="phone" placeholder="Enter your phone" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
+            </div>
+           
+            <div class="w-3/4 h-[100px] flex border-solid border-2 border-gray-400 rounded-lg  py-2 items-center justify-start">
+                <textarea name="description"  placeholder="Enter Your Item description" class="px-5 h-full w-full rounded-lg overflow-hiddens outline-none text-lg" required></textarea>
+            </div>
         
-    </div>
-      </div>
+            <button type="submit" class="mt-4 px-4 w-[30vw] bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 rounded-full transition-colors duration-200">
+               send
+            </button>
+            
+        </form>
+     </div>
 
-
-    </div>
-
-
-    </div>
-    <!-- /details section -->
     
 </body>
 </html>

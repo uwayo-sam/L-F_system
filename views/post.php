@@ -14,13 +14,15 @@ isAdmin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L&F | post item</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* *{
             padding: 0;
             margin: 0;
         } */
         body{
-            background: linear-gradient(rgba(0,0,0,.7)), url('../public/bg2.png');
+            background: linear-gradient(rgba(0,0,0,.7)), url('../public/bg.png');
             background-repeat: no-repeat;
             background-size: cover;
             color: #F5F5F5;
@@ -32,14 +34,13 @@ isAdmin();
        
 
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 </head>
 <body>
     <!-- header -->
     <div class="w-[100vw] flex justify-between px-5 py-3">
         <div>
-        <a href="./"><h1 class="text-2xl font-extrabold uppercase">L&F</h1></a>
+        <a href="./index"><h1 class="text-2xl font-extrabold uppercase">L&F</h1></a>
         </div>
         <div class="flex gap-2">
             
@@ -91,7 +92,7 @@ isAdmin();
                 <input type="text" name="type" placeholder="Enter Item Type" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
             </div>
             <div class="w-3/4 h-[100px] flex border-solid border-2 border-gray-400 rounded-lg  py-2 items-center justify-start">
-                <textarea name="description"  placeholder="Enter Item Name" class="px-5 h-full w-full rounded-lg overflow-hiddens outline-none text-lg" required></textarea>
+                <textarea name="description"  placeholder="Enter Item description" class="px-5 h-full w-full rounded-lg overflow-hiddens outline-none text-lg" required></textarea>
             </div>
             
                 <input type="file" name="file" accept="image/*" placeholder="Select Item Image" class="px-3 py-2 bg-[#0c0b12] hover:cursor-pointer hover:bg-slate-900 rounded-md" required>

@@ -4,6 +4,7 @@ session_start();
 include "../backend/db/item.php";
 include "../backend/db/conn.php";
 include "../backend/db/user.php";
+include "../backend/db/Found_item.php";
 include "../backend/auth.php";
 
 
@@ -118,16 +119,12 @@ if(isset($_GET['query']) && !empty($_GET['query'])){
 
 
       <div class="px-10 py-4 flex flex-col gap-4  border-gray-600 rounded-2xl backdrop-blur-sm border-1">
-         <h1 class="text-2xl font-bold capitalize">total approved user</h1>
-         <h1><?php echo Item::TotalApproved($conn)[0]['totalApproved']; ?></h1>
+         <h1 class="text-2xl font-bold capitalize">total approved items</h1>
+         <h1><?php Found_item::Total($conn) ?></h1>
       </div>
 
 
 
-      <div class="px-10 py-4 flex flex-col gap-4  border-gray-600 rounded-2xl backdrop-blur-sm border-1">
-            <h1 class="text-2xl font-bold capitalize">total remains items</h1>
-            <h1><?php echo Item::TotalNoneApproved($conn)[0]['totalNoneApproved']; ?></h1>
-      </div>
     </div>
 
     <!-- /content -->
