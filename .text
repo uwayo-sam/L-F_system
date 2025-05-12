@@ -1,0 +1,21 @@
+if(isset($_GET['FoundItems']) || $_SESSION['admin_page'] == 'FoundItems'){
+    
+      $_SESSION['admin_page'] = 'FoundItems';
+      if(isset($_GET['query'])){
+          $items = Found_item::Search($_GET['query'],$conn);
+      }else{
+          
+          $items = Found_item::all($conn);
+      }
+
+
+    }else{
+        $_SESSION['admin_page'] = 'posts';
+        if(isset($_GET['query'])){
+            $items = Item::Search($_GET['query'],$conn);
+        }else{
+            $items = Item::all($conn);
+
+        }
+
+    }

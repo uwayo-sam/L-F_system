@@ -44,16 +44,16 @@ function upload($file) {
 }
 
 
-function SendEmail($isfounder){
+function SendEmail($isfounder ,$contact_info,$name){
     $mail = new PHPMailer(true);
 
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = 'live.smtp.mailtrap.io'; // Your SMTP server
+        $mail->Host       = 'sandbox.smtp.mailtrap.io'; // Your SMTP server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'api';
-        $mail->Password   = '2e52c2a4391fbe2b08e1aa8b5e1b7606';
+        $mail->Username   = 'af394a16e7ed5b';
+        $mail->Password   = 'd94e8282ad4f9d';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
     
@@ -70,11 +70,12 @@ function SendEmail($isfounder){
         $mail->Body    = "
             <h1 style='color:green;'>the owner is</h1>
             <div>
-            <h1>name: <b style='color: green;'>names</b></h1>
-            <br>
+            <h1>name: <b style='color: green;'>{$name}</b></h1>
+            <br>            <br>
             <hr>
             <h1 style='color: green;'>contact info</h1>
-            <p>contact info</p>
+                        <br>            
+            <p>{$contact_info}o</p>
             </div>
         ";
 
@@ -85,11 +86,12 @@ function SendEmail($isfounder){
         $mail->Body    = "
             <h1 style='color:green;'>the founder is</h1>
             <div>
-            <h1>name: <b style='color: green;'>names</b></h1>
-            <br>
+            <h1>name: <b style='color: green;'>{$name}</b></h1>
+            <br>            <br>
             <hr>
             <h1 style='color: green;'>contact info</h1>
-            <p>contact info</p>
+            <br>           
+            <p>{$contact_info}</p>
             </div>
         ";
 
@@ -97,7 +99,7 @@ function SendEmail($isfounder){
   
     
         $mail->send();
-        echo 'Message has been sent succesful';
+      
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

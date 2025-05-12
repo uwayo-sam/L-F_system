@@ -4,8 +4,8 @@ include "conn.php";
 
 
 class Found_item {
- public static function Create($looser_name,$lost_location,$lost_item_disc,$looser_phone,$I_id,$db){
-    $sql = "INSERT INTO found_items(looser_name,lost_location, lost_item_disc, looser_phone, I_id) VALUES ('$looser_name','$lost_location','$lost_item_disc','$looser_phone','$I_id')";
+ public static function Create($looser_name,$lost_location,$lost_item_disc,$looser_phone,$lost_time,$I_id,$db){
+    $sql = "INSERT INTO found_items(looser_name,lost_location, lost_item_disc, looser_phone, I_id,lost_time) VALUES ('$looser_name','$lost_location','$lost_item_disc','$looser_phone','$I_id','$lost_time')";
      
     if($db->query($sql)){
         return true;
@@ -120,4 +120,3 @@ public static function Delete($id,$db){
 
 
 
-echo Found_item::SetVeryfied(23,$conn);

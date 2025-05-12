@@ -103,11 +103,6 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
         <h1 class=" text-xl font-bold"><?php echo $item['name'] ?></h1>
       </div>
 
-      <div class="flex gap-2">
-        <h1>location it is found: </h1>
-        <h2 class="text-lg font-bold"><?php echo $item['loacation_found'] ?></h2>
-       </div>
-
        <div class="flex gap-2">
         <h1>contact info: </h1>
         <h3 class="text-lg font-bold"><?php echo $item['contact_info'] ?></h3>
@@ -130,7 +125,7 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
         <?php
 
         if($item['status'] == 'pending'){
-          echo "<a href='./approve/?id={$item['id']}' class='backdrop-blur-sm border-2 w-1/2 hover:cursor-pointer hover:bg-gray-600 border-gray-600 px-5 py-2 rounded-xl'>approve</a>";
+          echo "<a href='./approve?id={$item['id']}' class='backdrop-blur-sm border-2 w-1/2 hover:cursor-pointer hover:bg-gray-600 border-gray-600 px-5 py-2 rounded-xl'>approve</a>";
         }else{
             echo "<h1 class=' font-medium text-lg'>approved</h1>";
         }

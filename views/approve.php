@@ -16,6 +16,8 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
     if(!$item){
       redirect('./');
     }
+
+    $_SESSION['I_id'] = $_GET['id'];
 }
 
 
@@ -84,11 +86,15 @@ if(isset($_GET['id'])&& !empty($_GET['id'])){
     <!-- /header -->
      <div class="flex justify-center items-center">
 
-     <form action="../backend/controllers/post.php" method="post" class="backdrop-blur-sm w-[35vw] rounded-2xl flex px-9 flex-col gap-4 items-center border-2 border-gray-50 justify-center mt-7 h-[85vh]" enctype="multipart/form-data">
+     <form action="../backend/controllers/report.php" method="post" class="backdrop-blur-sm w-[35vw] rounded-2xl flex px-9 flex-col gap-4 items-center border-2 border-gray-50 justify-center mt-7 h-[85vh]" enctype="multipart/form-data">
             <h1 class="text-3xl font-bold mb-4 text-white">Report you info</h1>
 
             <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
-                <input type="text" name="name" placeholder="Enter your name" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
+                <input type="text" name="location" placeholder="Enter Where Your Lost It" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
+            </div>
+
+            <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
+                <input type="text" name="time" placeholder="Enter Time Your Lost It" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
             </div>
             <div class="w-3/4 h-[40px] flex border-solid border-2 border-gray-400 rounded-full  py-2 items-center justify-start">
                 <input type="text" name="phone" placeholder="Enter your phone" class="px-5 h-full w-full rounded-full outline-none text-lg" required>
